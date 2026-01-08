@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallison | Desenvolvedor & Designer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuração do Tailwind para fontes e cores -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="scrollToSection('home')">
+                    <div
+                        class="w-8 h-8 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+                        <span class="font-bold text-white">W</span>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white">Wallison<span
+                            class="text-indigo-500">.dev</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8" id="desktop-menu">
+                    <button onclick="scrollToSection('home')"
+                        class="nav-link text-indigo-400 text-sm font-medium transition-colors hover:text-indigo-400"
+                        data-section="home">Home</button>
+                    <button onclick="scrollToSection('services')"
+                        class="nav-link text-slate-400 text-sm font-medium transition-colors hover:text-indigo-400"
+                        data-section="services">Serviços</button>
+                    <button onclick="scrollToSection('projects')"
+                        class="nav-link text-slate-400 text-sm font-medium transition-colors hover:text-indigo-400"
+                        data-section="projects">Projetos</button>
+                    <button onclick="scrollToSection('about')"
+                        class="nav-link text-slate-400 text-sm font-medium transition-colors hover:text-indigo-400"
+                        data-section="about">Sobre</button>
+                    <button onclick="scrollToSection('contact')"
+                        class="nav-link text-slate-400 text-sm font-medium transition-colors hover:text-indigo-400"
+                        data-section="contact">Contato</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-400 hover:text-white focus:outline-none p-2">
+                        <i data-lucide="menu" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-slate-900 border-b border-slate-800 transition-all duration-300 origin-top">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="scrollToSection('home')"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Home</button>
+                <button onclick="scrollToSection('services')"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Serviços</button>
+                <button onclick="scrollToSection('projects')"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Projetos</button>
+                <button onclick="scrollToSection('about')"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Sobre</button>
+                <button onclick="scrollToSection('contact')"
+                    class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Contato</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 px-4 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div
+            class="absolute top-20 right-0 -mr-20 -mt-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl opacity-50 animate-pulse">
+        </div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl opacity-50">
+        </div>
+
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
+                Disponível para Projetos Freelance
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                Transformando ideias em <br />
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+                    Realidade Digital
+                </span>
+            </h1>
+
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10">
+                Olá, sou o Wallison. Cientista da Computação especializado em criar sistemas web de alta performance e
+                designs modernos que convertem visitantes em clientes.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="scrollToSection('projects')"
+                    class="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all transform hover:scale-105 shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2">
+                    Ver Portfólio <i data-lucide="chevron-right" width="20"></i>
+                </button>
+                <button onclick="scrollToSection('contact')"
+                    class="px-8 py-4 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition-all flex items-center justify-center gap-2">
+                    Solicitar Orçamento
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Como posso ajudar seu negócio</h2>
+                <div class="w-20 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+                    Combino conhecimento técnico profundo com sensibilidade estética para entregar soluções completas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div
+                    class="bg-slate-950 p-8 rounded-2xl border border-slate-800 hover:border-indigo-500/50 transition-all group hover:-translate-y-2">
+                    <div
+                        class="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-500 transition-colors">
+                        <i data-lucide="code" class="text-indigo-400 group-hover:text-white" width="32" height="32"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Desenvolvimento Web</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Sites institucionais, Landing Pages de alta conversão e blogs. Código limpo, rápido e otimizado
+                        para SEO (Google).
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div
+                    class="bg-slate-950 p-8 rounded-2xl border border-slate-800 hover:border-purple-500/50 transition-all group hover:-translate-y-2">
+                    <div
+                        class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500 transition-colors">
+                        <i data-lucide="database" class="text-purple-400 group-hover:text-white" width="32"
+                            height="32"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sistemas Complexos</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Dashboards administrativos, painéis de controle, e-commerces e integrações com APIs e bancos de
+                        dados.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div
+                    class="bg-slate-950 p-8 rounded-2xl border border-slate-800 hover:border-pink-500/50 transition-all group hover:-translate-y-2">
+                    <div
+                        class="w-14 h-14 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-pink-500 transition-colors">
+                        <i data-lucide="palette" class="text-pink-400 group-hover:text-white" width="32"
+                            height="32"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">UI/UX Design</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Interfaces modernas, intuitivas e responsivas. Criação de identidade visual e protótipos de alta
+                        fidelidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Projetos Recentes</h2>
+                    <p class="text-slate-400">Uma seleção dos meus melhores trabalhos.</p>
+                </div>
+                <button
+                    class="hidden md:flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-medium transition-colors mt-4 md:mt-0">
+                    Ver GitHub <i data-lucide="github" width="18"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1: MegaFarma -->
+                <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
+                    <div class="aspect-video bg-slate-800 overflow-hidden relative">
+                        <img src="C:/Users/Wallison Meganet/.gemini/antigravity/brain/7b636437-00b5-457b-ae56-f9ef8fff0280/megafarma_system_mockup_1767900646998.png"
+                            alt="MegaFarma System"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <a href="https://github.com/wallisonsk88/megafarma" target="_blank"
+                            class="absolute -top-10 right-6 bg-indigo-600 p-3 rounded-full shadow-lg group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="github" class="text-white" width="20"></i>
+                        </a>
+                        <h3 class="text-xl font-bold text-white mb-2">MegaFarma</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Sistema de Cotação de Medicamentos robusto, focado em agilidade e precisão para o setor
+                            farmacêutico.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">PHP</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">SQL</span>
+                            <span class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">Web
+                                System</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Mega-Controle -->
+                <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
+                    <div class="aspect-video bg-slate-800 overflow-hidden relative">
+                        <img src="C:/Users/Wallison Meganet/.gemini/antigravity/brain/7b636437-00b5-457b-ae56-f9ef8fff0280/megacontrole_system_mockup_1767900677882.png"
+                            alt="Mega-Controle Dashboard"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <a href="https://github.com/wallisonsk88/Mega-Controle" target="_blank"
+                            class="absolute -top-10 right-6 bg-indigo-600 p-3 rounded-full shadow-lg group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="github" class="text-white" width="20"></i>
+                        </a>
+                        <h3 class="text-xl font-bold text-white mb-2">Mega-Controle</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Dashboard administrativo completo para controle empresarial, integrando métricas e gestão de
+                            dados.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">Management</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">Fullstack</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Project Card 4: Mega-Fitness -->
+                <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
+                    <div class="aspect-video bg-slate-800 overflow-hidden relative">
+                        <img src="C:/Users/Wallison Meganet/.gemini/antigravity/brain/7b636437-00b5-457b-ae56-f9ef8fff0280/megafitness_app_mockup_1767900662280.png"
+                            alt="Mega-Fitness App"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <a href="https://github.com/wallisonsk88/Mega-Fitness" target="_blank"
+                            class="absolute -top-10 right-6 bg-indigo-600 p-3 rounded-full shadow-lg group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="github" class="text-white" width="20"></i>
+                        </a>
+                        <h3 class="text-xl font-bold text-white mb-2">Mega-Fitness</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Aplicativo moderno para gestão de academias, acompanhamento de treinos e progresso de
+                            alunos.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">Mobile</span>
+                            <span class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">UX
+                                Design</span>
+                            <span class="px-3 py-1 bg-slate-800 text-xs font-medium text-slate-300 rounded-full">React
+                                Native</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center md:hidden">
+            <button
+                class="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 font-medium transition-colors mx-auto">
+                Ver mais no GitHub <i data-lucide="github" width="18"></i>
+            </button>
+        </div>
+        </div>
+    </section>
+
+    <!-- About & Stats Section -->
+    <section id="about" class="py-20 bg-slate-900/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Mais que código,<br />eu construo <span
+                            class="text-indigo-400">soluções</span>.</h2>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        Formado em Ciência da Computação, minha base teórica sólida me permite ir além do óbvio. Não
+                        apenas "faço sites", eu entendo a arquitetura, a segurança e a escalabilidade do que estou
+                        construindo.
+                    </p>
+                    <p class="text-slate-300 mb-8 leading-relaxed">
+                        Minha experiência abrange desde o design de interfaces intuitivas até a lógica complexa do
+                        back-end. Meu objetivo é entregar projetos que não só funcionem perfeitamente, mas que encantem
+                        seus usuários.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-4xl font-bold text-white mb-1">4+</h4>
+                            <p class="text-slate-400 text-sm">Anos de Experiência</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-bold text-white mb-1">20+</h4>
+                            <p class="text-slate-400 text-sm">Projetos Entregues</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-bold text-white mb-1">100%</h4>
+                            <p class="text-slate-400 text-sm">Clientes Satisfeitos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl transform rotate-3 opacity-20 blur-lg">
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 p-8 rounded-2xl relative">
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                            <i data-lucide="terminal" class="text-indigo-400"></i> Stack Tecnológica
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-300">Front-end (React/Vue)</span>
+                                    <span class="text-indigo-400">95%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-2">
+                                    <div class="bg-indigo-500 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-300">Back-end (Node/Python)</span>
+                                    <span class="text-indigo-400">85%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-2">
+                                    <div class="bg-indigo-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-300">UI/UX Design</span>
+                                    <span class="text-indigo-400">90%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-2">
+                                    <div class="bg-indigo-500 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-slate-300">Banco de Dados</span>
+                                    <span class="text-indigo-400">80%</span>
+                                </div>
+                                <div class="w-full bg-slate-800 rounded-full h-2">
+                                    <div class="bg-indigo-500 h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - Freelance Focus -->
+    <section class="py-16">
+        <div class="max-w-5xl mx-auto px-4">
+            <div
+                class="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 border border-indigo-500/30 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-12 opacity-10">
+                    <i data-lucide="code" size="120" class="text-white transform rotate-12" width="120"
+                        height="120"></i>
+                </div>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 relative z-10">
+                    Tem um projeto em mente?
+                </h2>
+                <p class="text-slate-300 mb-8 max-w-2xl mx-auto relative z-10">
+                    Estou com agenda aberta para novos projetos freelance. Vamos conversar sobre como posso elevar o
+                    nível do seu negócio digital.
+                </p>
+                <a href="https://wa.me/5599981351593" target="_blank" rel="noreferrer"
+                    class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg hover:shadow-green-500/25 relative z-10">
+                    <i data-lucide="smartphone" width="20"></i> Chamar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Vamos Trabalhar Juntos?</h2>
+                    <p class="text-slate-400 mb-8">
+                        Preencha o formulário ou entre em contato direto pelas redes sociais. Respondo geralmente em até
+                        24 horas.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800">
+                                <i data-lucide="mail" class="text-indigo-400" width="20"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">Email</h4>
+                                <p class="text-slate-400 text-sm">wallisonsk88@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800">
+                                <i data-lucide="linkedin" class="text-indigo-400" width="20"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">LinkedIn</h4>
+                                <p class="text-slate-400 text-sm">linkedin.com/in/wallisonsk88</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800">
+                                <i data-lucide="smartphone" class="text-indigo-400" width="20"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">WhatsApp</h4>
+                                <p class="text-slate-400 text-sm">(99) 98135-1593</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                    <form id="contact-form" action="https://formspree.io/f/wallisonsk88@gmail.com" method="POST"
+                        class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-400 mb-1">Nome</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                                placeholder="Seu nome" />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-400 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                                placeholder="seu@email.com" />
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-400 mb-1">Mensagem</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors resize-none"
+                                placeholder="Fale um pouco sobre seu projeto..."></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn"
+                            class="w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all bg-indigo-600 hover:bg-indigo-700 text-white">
+                            <span>Enviar Mensagem</span> <i data-lucide="send" width="18"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">
+                © <span id="year"></span> Wallison Dev. Todos os direitos reservados.
+            </p>
+            <div class="flex justify-center gap-4 mt-4">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="github"
+                        width="20"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="linkedin"
+                        width="20"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="mail"
+                        width="20"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
